@@ -1,7 +1,8 @@
 name: flutter_feed_reaction
-description: A new Flutter package project to show your reactions in posts/comments.
+description: A Flutter package providing you with highly customizable reactions list for posts/comments in a Social Media kind of an app.
 version: 0.0.1
-homepage: null
+homepage: https://github.com/shrijanRegmi/flutter_feed_reaction
+repository: https://github.com/shrijanRegmi/flutter_feed_reaction
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

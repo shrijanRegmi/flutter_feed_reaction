@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feed_reaction/flutter_feed_reaction.dart';
-import 'package:flutter_feed_reaction/models/feed_reaction_model.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -93,6 +92,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When the reaction button is place on the left most side of the screen
   Widget _leftAlignmentBuilder() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,6 +127,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When the reaction button is place on the center of the screen
   Widget _centerAlignmentBuilder() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -164,6 +165,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When the reaction button is place on the right most side of the screen
   Widget _rightAlignmentBuilder() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -202,6 +204,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When only two reactions are used
   Widget _onlyTwoReactions() {
     final _twoReactions = _reactions.sublist(0, 2);
     return Column(
@@ -231,6 +234,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When only three reactions are used
   Widget _onlyThreeReactions() {
     final _twoReactions = _reactions.sublist(0, 3);
     return Column(
@@ -260,6 +264,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // When different widget is used as reactions
   Widget _differentWidgetReaction() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

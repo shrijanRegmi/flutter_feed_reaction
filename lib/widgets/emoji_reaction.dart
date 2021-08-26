@@ -7,7 +7,7 @@ import 'package:flutter_portal/flutter_portal.dart';
 ///
 /// The [reactions] parameter must not be null.
 /// The [prefix] parameter must not be null.
-/// The [onReacted] parameter must not be null.
+/// The [onReactionSelected] parameter must not be null.
 /// The [dragSpace] parameter must not be null
 ///
 /// This example shows the basic implementation of [FlutterFeedReaction] widget.
@@ -32,7 +32,7 @@ import 'package:flutter_portal/flutter_portal.dart';
 ///     ),
 ///   ],
 ///   dragSpace: 40.0,
-///   onReacted: (val) {
+///   onReactionSelected: (val) {
 ///     print(val.name);
 ///   },
 ///   prefix: Image.asset(
@@ -51,8 +51,9 @@ class FlutterFeedReaction extends StatefulWidget {
   FlutterFeedReaction({
     required this.reactions,
     required this.prefix,
-    required this.onReacted,
+    required this.onReactionSelected,
     required this.dragSpace,
+    required this.onPressed,
     this.dragStart = 40.0,
     this.suffix,
     this.spacing = 10.0,
@@ -61,43 +62,42 @@ class FlutterFeedReaction extends StatefulWidget {
     this.portalAnchor = Alignment.bottomLeft,
   });
 
-  /// The reactions list to display when long pressed on the [prefix] or [suffix] widget
+  /// The reactions list to display when long pressed on the [prefix] or [suffix] widget.
   ///
-  /// The [reactions] parameter must not be null
+  /// The [reactions] parameter must not be null.
   final List<FeedReaction> reactions;
 
-  /// The button to be pressed to show the reactions list
+  /// The button to be pressed to show the reactions list.
   ///
   /// When it is long pressed, it will just show the reactions list.
-  /// When it is short pressed, it will call [onReacted] function with the first
-  /// item of reactions list
+  /// When it is short pressed, it will call [onPressed] function.
   ///
-  /// The [prefix] parameter must not be null
+  /// The [prefix] parameter must not be null.
   final Widget prefix;
 
-  /// The optional widget next to [prefix] widget
+  /// The optional widget next to [prefix] widget.
   final Widget? suffix;
 
-  /// The spacing between each drag
+  /// The spacing between each drag.
   ///
   /// If there are two items in the reactions list then [dragSpace] is the gap
   /// between the two items. Eg: If there is dragSpace of 40.0 then after dragging
   /// 40px from the first item, the next item will be focused. Similarly after
   /// dragging 40px from second item, the third item will be focused and so on.
   ///
-  /// The [dragSpace] parameter must not be null
+  /// The [dragSpace] parameter must not be null.
   final double dragSpace;
 
-  /// The starting position of the drag
+  /// The starting position of the drag.
   ///
   /// When dragging the reactions, if the dragStart value is 50.0 then the
-  /// reactions will start to focus only when the drag reach 50px from the left of the screen
+  /// reactions will start to focus only when the drag reach 50px from the left of the screen.
   ///
-  /// When not specified, [dragStart] defaults to 40.0
+  /// When not specified, [dragStart] defaults to 40.0.
   final double dragStart;
 
-  /// The [childAnchor] and [portalAnchor] are the alignments of the reactions l
-  /// ist around [prefix] and [suffix] widgets
+  /// The [childAnchor] and [portalAnchor] are the alignments of the reactions
+  /// list around [prefix] and [suffix] widgets.
   ///
   /// ```dart
   /// FlutterFeedReaction(
@@ -108,11 +108,11 @@ class FlutterFeedReaction extends StatefulWidget {
   /// What this code means is, this will align the bottom-left of the reactions
   /// list widget with the top-right of the [prefix] and [suffix] widget.
   ///
-  /// When not specified [childAnchor] defaults to [Alignment.topLeft]
+  /// When not specified [childAnchor] defaults to [Alignment.topLeft].
   final Alignment childAnchor;
 
   /// The [childAnchor] and [portalAnchor] are the alignments of the reactions
-  /// list around [prefix] and [suffix] widgets
+  /// list around [prefix] and [suffix] widgets.
   ///
   /// ```dart
   /// FlutterFeedReaction(
@@ -123,26 +123,33 @@ class FlutterFeedReaction extends StatefulWidget {
   /// What this code means is, this will align the bottom-left of the reactions
   /// list widget with the top-right of the [prefix] and [suffix] widget.
   ///
-  /// When not specified [portalAnchor] defaults to [Alignment.bottomLeft]
+  /// When not specified [portalAnchor] defaults to [Alignment.bottomLeft].
   final Alignment portalAnchor;
 
-  /// The function that gets called when a reaction is selected
+  /// The function that gets called when a reaction is selected.
   ///
-  /// The [onReacted] function is called when the [prefix] or [suffix] widget is
-  /// pressed or a reaction is selected from the reactions list after [prefix] or
-  /// [suffix] widget is long pressed.
+  /// The [onReactionSelected] function is called when a reaction is selected
+  /// from the reactions list after [prefix] or [suffix] widget is long pressed.
   ///
-  ///  The [onReacted] parameter must not be null
-  final Function(FeedReaction) onReacted;
+  ///  The [onReactionSelected] parameter must not be null.
+  final Function(FeedReaction) onReactionSelected;
 
-  /// The spacing between the reactions list container and [prefix]/[suffix] widget
+  /// The function that gets called when the prefix or widget is pressed.
   ///
-  /// When not specified, [spacing] defaults to 10.0
+  /// The [onPressed] function is called when the [prefix] or [suffix] widget is
+  /// pressed.
+  ///
+  ///  The [onPressed] parameter must not be null.
+  final Function() onPressed;
+
+  /// The spacing between the reactions list container and [prefix]/[suffix] widget.
+  ///
+  /// When not specified, [spacing] defaults to 10.0.
   final double spacing;
 
-  /// The width of the reactions list container
+  /// The width of the reactions list container.
   ///
-  /// When not specified, [containerWidth] defaults to 300.0
+  /// When not specified, [containerWidth] defaults to 300.0.
   final double containerWidth;
 }
 
@@ -651,7 +658,7 @@ class _FlutterFeedReactionState extends State<FlutterFeedReaction>
   void _onTapUpBtn(TapUpDetails? tapUpDetail) {
     if (isLongPress) {
       if (widget.reactions.isNotEmpty)
-        widget.onReacted(widget.reactions[whichIconUserChoose]);
+        widget.onReactionSelected(widget.reactions[whichIconUserChoose]);
       currentIconFocus = -1;
     }
     Timer(Duration(milliseconds: durationAnimationBox), () {
@@ -682,7 +689,7 @@ class _FlutterFeedReactionState extends State<FlutterFeedReaction>
       } else {
         animControlBtnShortPress.reverse();
       }
-      if (widget.reactions.isNotEmpty) widget.onReacted(widget.reactions.first);
+      if (widget.reactions.isNotEmpty) widget.onPressed();
     }
   }
 

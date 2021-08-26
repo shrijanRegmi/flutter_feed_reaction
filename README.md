@@ -32,7 +32,7 @@ FlutterFeedReaction(
      ),
    ],
    dragSpace: 40.0,
-   onReacted: (FeedReaction val) {
+   onReactionSelected: (FeedReaction val) {
      print(val.name);
    },
    prefix: Image.asset(
@@ -49,9 +49,10 @@ FlutterFeedReaction(
 | parameter | description | default |
 | :--- | :--- | :--- |
 | reactions | The reactions list to display when long pressed on the [prefix] or [suffix] widget | |
-| prefix | The button to be pressed to show the reactions list. When it is long pressed, it will just show the reactions list. When it is short pressed, it will call [onReacted] function with the first item of reactions list | |
+| prefix | The button to be pressed to show the reactions list. When it is long pressed, it will just show the reactions list. When it is short pressed, it will call [onReactionSelected] function with the first item of reactions list | |
 | dragSpace | The spacing between each drag. If there are two items in the reactions list then [dragSpace] is the gap between the two items. Eg: If there is dragSpace of 40.0 then after dragging 40px from the first item, the next item will be focused. Similarly after dragging 40px from second item, the third item will be focused and so on. | |
-| onReacted | The function that gets called when a reaction is selected. The [onReacted] function is called when the [prefix] or [suffix] widget is pressed or a reaction is selected from the reactions list after [prefix] or [suffix] widget is long pressed. | |
+| onReactionSelected | The function that gets called when a reaction is selected. The [onReactionSelected] function is called when a reaction is selected from the reactions list after [prefix] or [suffix] widget is long pressed. | |
+| onPressed | The function that gets called when the prefix or widget is pressed. The [onPressed] function is called when the [prefix] or [suffix] widget is pressed | null |
 | dragStart | The starting position of the drag. When dragging the reactions, if the dragStart value is 50.0 then the reactions will start to focus only when the drag reach 50px from the left of the screen | 40.0 |
 | suffix | The optional widget next to [prefix] widget | null |
 | spacing | The spacing between the reactions list container and [prefix]/[suffix] widget | 10.0 |
@@ -119,7 +120,7 @@ FlutterFeedReaction(
     ),
   ],
   dragSpace: 50.0,
-  onReacted: (val) {
+  onReactionSelected: (val) {
     print(val.name);
   },
   prefix: Image.asset(
@@ -247,7 +248,7 @@ class HomeScreen extends StatelessWidget {
             FlutterFeedReaction(
               reactions: _reactions,
               dragSpace: 50.0,
-              onReacted: (val) {
+              onReactionSelected: (val) {
                 print(val.name);
               },
               prefix: Image.asset(
@@ -283,7 +284,7 @@ class HomeScreen extends StatelessWidget {
             FlutterFeedReaction(
               reactions: _reactions,
               dragSpace: 65.0,
-              onReacted: (val) {
+              onReactionSelected: (val) {
                 print(val.name);
               },
               prefix: Image.asset(
@@ -322,7 +323,7 @@ class HomeScreen extends StatelessWidget {
               reactions: _reactions,
               dragSpace: 50.0,
               dragStart: 100.0,
-              onReacted: (val) {
+              onReactionSelected: (val) {
                 print(val.name);
               },
               prefix: Image.asset(
@@ -362,7 +363,7 @@ class HomeScreen extends StatelessWidget {
             width: 40.0,
             height: 40.0,
           ),
-          onReacted: (val) {},
+          onReactionSelected: (val) {},
           dragSpace: 50.0,
           containerWidth: 150.0,
         ),
@@ -392,7 +393,7 @@ class HomeScreen extends StatelessWidget {
             width: 40.0,
             height: 40.0,
           ),
-          onReacted: (val) {},
+          onReactionSelected: (val) {},
           dragSpace: 50.0,
           containerWidth: 180.0,
         ),
@@ -461,7 +462,7 @@ class HomeScreen extends StatelessWidget {
             Icons.star,
             size: 40.0,
           ),
-          onReacted: (val) {},
+          onReactionSelected: (val) {},
           dragSpace: 50.0,
         ),
       ],

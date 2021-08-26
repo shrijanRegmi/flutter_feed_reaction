@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Package example updated
+
+## 0.0.3
+
+* Renamed onReacted to onReactionSelected and onPressed function introduced

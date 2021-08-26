@@ -36,6 +36,9 @@ import 'package:flutter_portal/flutter_portal.dart';
 ///   onReactionSelected: (val) {
 ///     print(val.name);
 ///   },
+///   onPressed: () {
+///     print("Pressed");
+///   },
 ///   prefix: Image.asset(
 ///     'assets/emojies/like_icon.png',
 ///     width: 40.0,

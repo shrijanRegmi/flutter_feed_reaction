@@ -32,8 +32,11 @@ FlutterFeedReaction(
      ),
    ],
    dragSpace: 40.0,
-   onReactionSelected: (FeedReaction val) {
+   onReactionSelected: (val) {
      print(val.name);
+   },
+   onPressed: () {
+     print("Pressed");
    },
    prefix: Image.asset(
      'assets/emojies/like_icon.png',
@@ -251,6 +254,9 @@ class HomeScreen extends StatelessWidget {
               onReactionSelected: (val) {
                 print(val.name);
               },
+              onPressed: () {
+                print("Pressed");
+              },
               prefix: Image.asset(
                 'assets/emojies/none.png',
                 width: 40.0,
@@ -286,6 +292,9 @@ class HomeScreen extends StatelessWidget {
               dragSpace: 65.0,
               onReactionSelected: (val) {
                 print(val.name);
+              },
+              onPressed: () {
+                print("Pressed");
               },
               prefix: Image.asset(
                 'assets/emojies/none.png',
@@ -326,6 +335,9 @@ class HomeScreen extends StatelessWidget {
               onReactionSelected: (val) {
                 print(val.name);
               },
+              onPressed: () {
+                print("Pressed");
+              },
               prefix: Image.asset(
                 'assets/emojies/none.png',
                 width: 40.0,
@@ -363,7 +375,12 @@ class HomeScreen extends StatelessWidget {
             width: 40.0,
             height: 40.0,
           ),
-          onReactionSelected: (val) {},
+          onReactionSelected: (val) {
+            print(val.name);
+          },
+          onPressed: () {
+            print("Pressed");
+          },
           dragSpace: 50.0,
           containerWidth: 150.0,
         ),
@@ -393,7 +410,12 @@ class HomeScreen extends StatelessWidget {
             width: 40.0,
             height: 40.0,
           ),
-          onReactionSelected: (val) {},
+          onReactionSelected: (val) {
+            print(val.name);
+          },
+          onPressed: () {
+            print("Pressed");
+          },
           dragSpace: 50.0,
           containerWidth: 180.0,
         ),
@@ -462,7 +484,12 @@ class HomeScreen extends StatelessWidget {
             Icons.star,
             size: 40.0,
           ),
-          onReactionSelected: (val) {},
+          onReactionSelected: (val) {
+            print(val.name);
+          },
+          onPressed: () {
+            print("Pressed");
+          },
           dragSpace: 50.0,
         ),
       ],

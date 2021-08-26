@@ -8,6 +8,7 @@ import 'package:flutter_portal/flutter_portal.dart';
 /// The [reactions] parameter must not be null.
 /// The [prefix] parameter must not be null.
 /// The [onReactionSelected] parameter must not be null.
+/// The [onPressed] parameter must not be null.
 /// The [dragSpace] parameter must not be null
 ///
 /// This example shows the basic implementation of [FlutterFeedReaction] widget.

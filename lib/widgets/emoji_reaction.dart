@@ -455,11 +455,13 @@ class _FlutterFeedReactionState extends State<FlutterFeedReaction>
           onVerticalDragEnd: _onHorizontalDragEndBoxIcon,
           onVerticalDragUpdate: _onHorizontalDragUpdateBoxIcon,
           child: Portal(
-            child: PortalEntry(
+            child: PortalTarget(
               visible: true,
-              portalAnchor: widget.portalAnchor,
-              childAnchor: widget.childAnchor,
-              portal: Padding(
+              anchor: Aligned(
+                follower: widget.portalAnchor,
+                target: widget.childAnchor,
+              ),
+              portalFollower: Padding(
                 padding: EdgeInsets.only(bottom: widget.spacing),
                 child: Container(
                   child: Stack(

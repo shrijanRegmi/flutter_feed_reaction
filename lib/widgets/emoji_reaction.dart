@@ -64,6 +64,7 @@ class FlutterFeedReaction extends StatefulWidget {
     this.containerWidth = 300.0,
     this.childAnchor = Alignment.topLeft,
     this.portalAnchor = Alignment.bottomLeft,
+    this.containerDecoration,
   });
 
   /// The reactions list to display when long pressed on the [prefix] or [suffix] widget.
@@ -155,6 +156,9 @@ class FlutterFeedReaction extends StatefulWidget {
   ///
   /// When not specified, [containerWidth] defaults to 300.0.
   final double containerWidth;
+
+  /// The decoration of the reactions list container.
+  final BoxDecoration? containerDecoration;
 }
 
 class _FlutterFeedReactionState extends State<FlutterFeedReaction>
@@ -487,18 +491,22 @@ class _FlutterFeedReactionState extends State<FlutterFeedReaction>
     return Opacity(
       opacity: fadeInBox.value,
       child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30.0),
-          border: Border.all(color: Color(0xffe0e0e0), width: 0.3),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 5.0,
-              offset: Offset(0, 2),
+        decoration: widget.containerDecoration ??
+            BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30.0),
+              border: Border.all(
+                color: Color(0xffe0e0e0),
+                width: 0.3,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 5.0,
+                  offset: Offset(0, 2),
+                ),
+              ],
             ),
-          ],
-        ),
         width: widget.containerWidth,
         height: isDragging
             ? (previousIconFocus == 0 ? zoomBoxIcon.value : 40.0)

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class FeedReaction {
-  final String name;
+  final int id;
+  final Widget header;
   final Widget reaction;
 
   FeedReaction({
-    required this.name,
+    required this.id,
+    required this.header,
     required this.reaction,
   });
 }

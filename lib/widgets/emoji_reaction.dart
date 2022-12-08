@@ -548,19 +548,7 @@ class _FlutterFeedReactionState extends State<FlutterFeedReaction>
                 child: Column(
                   children: <Widget>[
                     currentIconFocus == i
-                        ? Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                color: Colors.black.withOpacity(0.6)),
-                            padding: EdgeInsets.only(
-                                left: 7.0, right: 7.0, top: 2.0, bottom: 2.0),
-                            margin: EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              '${widget.reactions[i].name}',
-                              style:
-                                  TextStyle(fontSize: 8.0, color: Colors.white),
-                            ),
-                          )
+                        ? widget.reactions[i].header
                         : Container(),
                     widget.reactions[i].reaction,
                   ],

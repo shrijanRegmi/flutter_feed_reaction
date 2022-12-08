@@ -17,3 +17,8 @@
 ## 0.0.5
 
 - containerDecoration property introduced
+
+## 0.0.6
+
+- added header property to FeedReaction model
+- updated example project

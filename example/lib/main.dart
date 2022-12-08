@@ -26,7 +26,24 @@ class HomeScreen extends StatelessWidget {
 
   final _reactions = [
     FeedReaction(
-      name: "Love",
+      id: 0,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Love",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
       reaction: Lottie.asset(
         'assets/lottie/heart.json',
         width: 40.0,
@@ -34,7 +51,24 @@ class HomeScreen extends StatelessWidget {
       ),
     ),
     FeedReaction(
-      name: "Care",
+      id: 1,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Care",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
       reaction: Lottie.asset(
         'assets/lottie/care.json',
         width: 40.0,
@@ -42,7 +76,24 @@ class HomeScreen extends StatelessWidget {
       ),
     ),
     FeedReaction(
-      name: "Lol",
+      id: 2,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Lol",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
       reaction: Lottie.asset(
         'assets/lottie/lol.json',
         width: 40.0,
@@ -50,7 +101,24 @@ class HomeScreen extends StatelessWidget {
       ),
     ),
     FeedReaction(
-      name: "Sad",
+      id: 3,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Sad",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
       reaction: Lottie.asset(
         'assets/lottie/sad.json',
         width: 40.0,
@@ -58,7 +126,24 @@ class HomeScreen extends StatelessWidget {
       ),
     ),
     FeedReaction(
-      name: "Angry",
+      id: 4,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Angry",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
       reaction: Lottie.asset(
         'assets/lottie/angry.json',
         width: 40.0,
@@ -131,7 +216,7 @@ class HomeScreen extends StatelessWidget {
               reactions: _reactions,
               dragSpace: 50.0,
               onReactionSelected: (val) {
-                print(val.name);
+                print(val.id);
               },
               onPressed: () {
                 print("Pressed");
@@ -170,7 +255,7 @@ class HomeScreen extends StatelessWidget {
               reactions: _reactions,
               dragSpace: 65.0,
               onReactionSelected: (val) {
-                print(val.name);
+                print(val.id);
               },
               onPressed: () {
                 print("Pressed");
@@ -212,7 +297,7 @@ class HomeScreen extends StatelessWidget {
               dragSpace: 50.0,
               dragStart: 100.0,
               onReactionSelected: (val) {
-                print(val.name);
+                print(val.id);
               },
               onPressed: () {
                 print("Pressed");
@@ -255,7 +340,7 @@ class HomeScreen extends StatelessWidget {
             height: 40.0,
           ),
           onReactionSelected: (val) {
-            print(val.name);
+            print(val.id);
           },
           onPressed: () {
             print("Pressed");
@@ -290,7 +375,7 @@ class HomeScreen extends StatelessWidget {
             height: 40.0,
           ),
           onReactionSelected: (val) {
-            print(val.name);
+            print(val.id);
           },
           onPressed: () {
             print("Pressed");
@@ -319,7 +404,24 @@ class HomeScreen extends StatelessWidget {
         FlutterFeedReaction(
           reactions: [
             FeedReaction(
-              name: 'Like',
+              id: 0,
+              header: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black.withOpacity(0.6),
+                ),
+                padding: EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                margin: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Like",
+                  style: TextStyle(fontSize: 8.0, color: Colors.white),
+                ),
+              ),
               reaction: Icon(
                 Icons.star,
                 size: 35.0,
@@ -327,7 +429,24 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             FeedReaction(
-              name: 'Love',
+              id: 1,
+              header: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black.withOpacity(0.6),
+                ),
+                padding: EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                margin: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Love",
+                  style: TextStyle(fontSize: 8.0, color: Colors.white),
+                ),
+              ),
               reaction: Icon(
                 Icons.star,
                 size: 35.0,
@@ -335,7 +454,24 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             FeedReaction(
-              name: 'Care',
+              id: 2,
+              header: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black.withOpacity(0.6),
+                ),
+                padding: EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                margin: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Care",
+                  style: TextStyle(fontSize: 8.0, color: Colors.white),
+                ),
+              ),
               reaction: Icon(
                 Icons.star,
                 size: 35.0,
@@ -343,7 +479,24 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             FeedReaction(
-              name: 'Lol',
+              id: 3,
+              header: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black.withOpacity(0.6),
+                ),
+                padding: EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                margin: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Lol",
+                  style: TextStyle(fontSize: 8.0, color: Colors.white),
+                ),
+              ),
               reaction: Icon(
                 Icons.star,
                 size: 35.0,
@@ -351,7 +504,24 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             FeedReaction(
-              name: 'Sad',
+              id: 4,
+              header: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black.withOpacity(0.6),
+                ),
+                padding: EdgeInsets.only(
+                  left: 7.0,
+                  right: 7.0,
+                  top: 2.0,
+                  bottom: 2.0,
+                ),
+                margin: EdgeInsets.only(bottom: 8.0),
+                child: Text(
+                  "Sad",
+                  style: TextStyle(fontSize: 8.0, color: Colors.white),
+                ),
+              ),
               reaction: Icon(
                 Icons.star,
                 size: 35.0,
@@ -364,7 +534,7 @@ class HomeScreen extends StatelessWidget {
             size: 40.0,
           ),
           onReactionSelected: (val) {
-            print(val.name);
+            print(val.id);
           },
           onPressed: () {
             print("Pressed");
